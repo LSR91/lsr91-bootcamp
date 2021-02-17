@@ -1,0 +1,44 @@
+Access & New Note in a SPA
+
+1) Browser asks for HTML to server:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-code (spa)
+
+2) Browser asks for CSS to server:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+
+3) Browser asks for script JS to server:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+
+4)Browser starts executing js-code and requests JSON data from server:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser:[
+					{
+						"content":"I looked",
+						"date":"2021-02-17T02:45:19.181Z"
+					},
+					{
+						"content":"testing...",
+						"date":"2021-02-17T03:01:29.805Z"
+					}
+					...
+				]
+
+5)Browser asks for favicon:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server->browser: <html>
+			        <head>
+			        </head>
+        			<body>
+           				<a href="/stats">Course stats</a>
+        			</body>
+   	 			</html>
+
+6) Writing a new note (testing) and submit:
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+POST Payload: {content: "testing", date: "2021-02-17T17:14:32.587Z"}
+server->browser: {"message":"note created"}
+
+7) Note list is update automatically
