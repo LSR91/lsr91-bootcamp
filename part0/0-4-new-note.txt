@@ -1,0 +1,79 @@
+Access & new note
+
+1) Browser asks for HTML to server:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code (notes)
+
+2) Browser asks for CSS to server:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+
+3) Browser asks for script JS to server:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+4)Browser starts executing js-code and requests JSON data from server:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser:[
+					{
+						"content":"",
+						"date":"2021-02-17T00:01:54.390Z"
+					},
+					{	
+						"content":"add a new note",
+						"date":"2021-02-17T02:09:56.730Z"
+					},
+					...
+				]
+
+5)Browser asks for favicon:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server->browser: <html>
+			        <head>
+			        </head>
+        			<body>
+           				<a href="/stats">Course stats</a>
+        			</body>
+   	 			</html>
+
+6) Writing a new note (testing) and submit:
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+7)Update all the content. Browser asks for HTML again:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server->browser: HTML-code (notes)
+
+8)Browser asks for CSS again:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+
+9)Browser aks for script JS again:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server->browser: main.js
+
+10)Browser asks for data JSON again:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser:[
+					{	
+						"content":"add a new note",
+						"date":"2021-02-17T02:09:56.730Z"
+					},
+					{
+						"content":"Saludos desde Colombia",
+					...
+					}
+					{
+						"content":"testing",
+						"date":"2021-02-17T16:53:28.548Z"
+					}
+				]
+
+11)Browser asks for favicon again:
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server->browser: <html>
+			        <head>
+			        </head>
+        			<body>
+           				<a href="/stats">Course stats</a>
+        			</body>
+   	 			</html>
